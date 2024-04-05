@@ -1,21 +1,18 @@
 import java.util.Scanner;
 
 public class Main {
-    public static int  fun(int n,int m) {
-        if (n == 0) {
-            return 1;
-        }
-        else {
-            return (int) (Math.pow(m,n) + fun(n-1,m));
+    public static void  fun(int n,Scanner scanner) {
+        if (n > 0) {
+            int num = scanner.nextInt();
+            fun(n - 1, scanner);
+            System.out.println(num);
         }
     }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int num2 = scanner.nextInt();
-        int num1 = scanner.nextInt();
-        int x = fun(num1,num2);
-        System.out.println(x);
+        int num = scanner.nextInt();
+        fun(num,scanner);
 
     }
 }
