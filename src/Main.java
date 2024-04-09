@@ -3,9 +3,9 @@ import java.util.Scanner;
 public class Main {
     public static void  fun(int n,Scanner scanner) {
         if (n > 0) {
-            int num = scanner.nextInt();
+            String str = scanner.next();
             fun(n - 1, scanner);
-            System.out.println(num);
+            System.out.println(str);
         }
     }
 
