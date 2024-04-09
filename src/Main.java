@@ -1,33 +1,26 @@
 import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Main {
-    public static void  fun(char[] ch, List<Character> per,boolean[] use) {
-        if (per.size()==ch.length) {
-            for (char x : per) {
-                System.out.print(x);
+
+    public static boolean isPowerOfTwo(int n) {
+        if (n <= 0) {
+            return false;
+        } else if (n == 1) {
+            return true;
+        } else {
+            while (n > 1) {
+                if (n % 2 != 0) {
+                    return false;
+                }
+                n /= 2;
             }
-            System.out.println();
-        }
-        else {
-            for (int i = 0; i < ch.length; i++){
-                if (!use[i]){
-                    use[i]=true;
-                    per.add(ch[i]);
-                    fun(ch,per,use);
-                    per.remove((per.size()-1));
-                    use[i] = false;
-                };
-            }
+            return true;
         }
     }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
-        char[] ch =input.toCharArray();
-        boolean[] use = new boolean[ch.length];
-        fun(ch,new ArrayList<>(),use);
+        int n = scanner.nextInt();
+        System.out.println(isPowerOfTwo(n));
     }
 }
